@@ -1,0 +1,17 @@
+# ide
+.idea
+.vscode
+
+# file manager
+Thumbs.db
+.DS_Store
+
+# vendor
+node_modules/
+
+
+# tmp
+tmp
+.sass-cache
+
+package-lock.json
