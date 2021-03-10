@@ -1,6 +1,7 @@
 :root {
 	--gridGap: 30px;
 	--ff: 'Montserrat', serif;
+	--rand: 10;
 }
 
 html, body{
@@ -19,23 +20,20 @@ aside, figure, figcaption{
 .pattern {
 	height: 450px;
 	font-weight: 700;
-	font-size: 64px;
-	background: 
-		linear-gradient(rgba(135, 60, 255, 0.4), rgba(135, 60, 255, 0.0) 80%),
-		linear-gradient(-45deg, rgba(120, 155, 255, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%);
+	font-size: 56px;
+	background: linear-gradient(to right, #aa4b6b, #6b6b83, #3b8d99);
 	color: #fff;
 	background-clip: text;
 	-webkit-text-stroke: 3px transparent; 
 }
 
 @for $i from 1 through 720 {
-	.letter:nth-child(#{$i}) { 
+	.letter:nth-child(#{$i}) {
+		--rr: calc(#{random(250)} * var(--rand) * 1deg);
+		--fz: calc(#{random(60)} * var(--rand) * 1px);
 		display: inline-flex;
-		position: relative;
-		top: random(10) + px;
-		left: random(10) + px;
-		transform: rotate(random(720) + deg);
-		text-shadow: #333 1px 1px 0, #333 1px 2px 0, #333 1px 3px 0, #333 1px 4px 0, #333 1px 5px 0, #333 1px 6px 0, #333 1px 7px 0, #333 1px 8px 0, #333 1px 9px 0, #333 1px 10px 0, #333 1px 11px 0, #333 1px 12px 0;
+		font-size: clamp(42px, var(--fz), 60px);
+		transform: rotate(var(--rr));
 	}
 }
 
