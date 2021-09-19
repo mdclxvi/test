@@ -73,7 +73,7 @@ function styles() {
   return src(`${sourceDir}/style/**/*.scss`)
     .pipe(sass())
     .pipe(concat('style.min.css'))
-    .pipe(autoprefixer({ overrideBrowserslist: ['last 4 versions'], grid: true }))
+    .pipe(autoprefixer({ overrideBrowserslist: ['last 2 versions'], grid: true }))
     .pipe(cleancss({ level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ }))
     .pipe(dest(`${targetDir}/style/`))
     .pipe(browserSync.stream())
