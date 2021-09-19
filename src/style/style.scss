@@ -13,11 +13,17 @@ aside, figure, figcaption{
 .wrap {
 	--count: 0;
 	--totalCards: 0;
-	--visibleCards: 3;
-	--cardWidth: calc(var(--wrapWidth)/var(--visibleCards)*1px);
+	--visibleCards: 0;
+	--fixedWidth: 342;
+	--template: 0;
+	--cardWidth: 0;
+	--visibleCardWidth: calc(var(--wrapWidth)/var(--visibleCards)*1px);
+	--templateVisibleCards: repeat(var(--visibleCards), var(--cardWidth));
+	--templateFixedWidthCards: repeat(var(--totalCards), var(--fixedWidth));
 	--gap: 10px;
 	display: grid;
-	grid-template: 1fr / repeat(var(--visibleCards), var(--cardWidth));
+	grid-template-rows: 1fr;
+	grid-template-columns: var(--template);
 	grid-auto-flow: column;
 	gap: var(--gap);
 	width: 100%;
@@ -33,7 +39,7 @@ aside, figure, figcaption{
   .el {
 	--slide: calc(var(--count)*(var(--cardWidth) + var(--gap)));
 	width: var(--cardWidth);
-	border: 1px solid #ccc;
+	background: #ccc;
 	transition: all .2s;
 	transform: translateX(var(--slide));
   }
