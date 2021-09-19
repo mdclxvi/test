@@ -25,6 +25,7 @@ aside, figure, figcaption{
 	grid-template-rows: 1fr;
 	grid-template-columns: var(--template);
 	grid-auto-flow: column;
+	justify-content: start;
 	gap: var(--gap);
 	width: 100%;
 	height: 200px;
