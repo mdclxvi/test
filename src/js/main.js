@@ -5,27 +5,36 @@ let btnNext = document.querySelector('.next');
 
 let totalCards = elems.length;
 
+let wrapStyles = getComputedStyle(wrap);
+
 let wrapWidth = wrap.offsetWidth;
-let counter = getComputedStyle(wrap).getPropertyValue('--count');
-let visibleCards = getComputedStyle(wrap).getPropertyValue('--visibleCards');
-let fixedWidth = getComputedStyle(wrap).getPropertyValue('--fixedWidth');
-let template = getComputedStyle(wrap).getPropertyValue('--template');
+let counter = wrapStyles.getPropertyValue('--count');
+let visibleCards = wrapStyles.getPropertyValue('--visibleCards');
+let fixedWidth = wrapStyles.getPropertyValue('--fixedWidth');
+let template = wrapStyles.getPropertyValue('--template');
 
-
+// const properties {
+//     wrapWidth = wrap.offsetWidth,
+//     counter = wrapStyles.getPropertyValue('--count'), 
+//     visibleCards = wrapStyles.getPropertyValue('--visibleCards'),
+//     visibleCards = wrapStyles.getPropertyValue('--visibleCards'),
+//     fixedWidth = wrapStyles.getPropertyValue('--fixedWidth'),
+//     template = wrapStyles.getPropertyValue('--template'),
+// }
 
 function setProperties() { 
-    if (Math.abs(visibleCards) > 0) {
+    if (Number(visibleCards) > 0) {
         wrap.style.setProperty('--template','var(--templateVisibleCards)');
         wrap.style.setProperty('--visibleCards', visibleCards);
         wrap.style.setProperty('--cardWidth', 'var(--visibleCardWidth)');
-    } else {
+    } 
+    else {
         wrap.style.setProperty('--template', 'var(--templateFixedWidthCards)');
         wrap.style.setProperty('--cardWidth', fixedWidth+'px');
     }
 
     wrap.style.setProperty("--wrapWidth", wrapWidth);
     wrap.style.setProperty("--totalCards", elems.length);
-
 }
 
 function btnClickHandler(event) {
