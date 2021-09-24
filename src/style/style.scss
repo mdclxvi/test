@@ -13,8 +13,9 @@ aside, figure, figcaption{
 .wrap {
 	--count: 0;
 	--totalCards: 0;
-	--visibleCards: 5;
-	--fixedWidth: 342;
+	--visibleCards: 3;
+	--slideCards: 1; 
+	--fixedWidth: 422;
 	--template: 0;
 	--cardWidth: 0;
 	--visibleCardWidth: calc(var(--wrapWidth)/var(--visibleCards)*1px);
@@ -31,6 +32,7 @@ aside, figure, figcaption{
 	height: 200px;
 	border: 1px solid #000;
 	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
 	
 	&::-webkit-scrollbar{
 	  display: none;
@@ -38,7 +40,7 @@ aside, figure, figcaption{
   }
   
   .el {
-	--slide: calc(var(--count)*(var(--cardWidth) + var(--gap)));
+	--slide: calc(var(--count)*var(--slideCards)*(var(--cardWidth) + var(--gap)));
 	width: var(--cardWidth);
 	background: #ccc;
 	transition: all .2s;
